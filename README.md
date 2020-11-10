@@ -1,15 +1,12 @@
 GET:
 
-
 student-manager/api/v1/student/all
-
 Get list of all students
 
 
 student-manager/api/v1/student/1
-
 Get one student by ID 1
-
+_____________________________
 POST:
 
 student-manager/api/v1/student/add
@@ -22,7 +19,7 @@ student-manager/api/v1/student/add
 
 Add one student
 
-
+_____________________________
 PUT:
 
 student-manager/api/v1/student/update
@@ -37,7 +34,7 @@ student-manager/api/v1/student/update
 
 Update student by ID 1
 
-
+_____________________________
 DELETE:
 
 student-manager/api/v1/student/1
