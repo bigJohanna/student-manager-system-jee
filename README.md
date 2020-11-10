@@ -1,10 +1,13 @@
 GET:
 
 student-manager/api/v1/student/all
+
 Get list of all students
 
 
+
 student-manager/api/v1/student/1
+
 Get one student by ID 1
 _____________________________
 POST:
