@@ -1,5 +1,6 @@
 package se.iths.rest;
 
+import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 import se.iths.entity.Student;
 import se.iths.exception.InvalidInputException;
 import se.iths.exception.NotFoundException;
@@ -22,11 +23,13 @@ public class StudentRest {
 
     @Path("add")
     @POST
-    public Response addStudent(Student student) {
-/*        if(student.getFirstName() == null || student.getLastname() == null || student.getEmail() == null){
+    public Response addStudent(@Valid @RequestBody Student student) {
+
+        if(student.getFirstName() == null || student.getLastname() == null || student.getEmail() == null){
             String message = createMessage(student);
             throw new InvalidInputException(message);
-        }*/
+        }
+
         Student newStudent = studentService.createStudent(student);
         return Response.ok(newStudent).build();
     }
