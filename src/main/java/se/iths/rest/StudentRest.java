@@ -5,13 +5,16 @@ import se.iths.entity.Student;
 import se.iths.exception.InvalidInputException;
 import se.iths.exception.NotFoundException;
 import se.iths.service.StudentService;
+import se.iths.validator.InputValidator;
 
 import javax.inject.Inject;
 import javax.validation.Valid;
+import javax.validation.Validation;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
+
 
 @Path("student")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -23,13 +26,8 @@ public class StudentRest {
 
     @Path("add")
     @POST
-    public Response addStudent(@Valid @RequestBody Student student) {
-
-        if(student.getFirstName() == null || student.getLastname() == null || student.getEmail() == null){
-            String message = createMessage(student);
-            throw new InvalidInputException(message);
-        }
-
+    public Response addStudent(Student student) {
+        new InputValidator().validateStudentInput(student);
         Student newStudent = studentService.createStudent(student);
         return Response.ok(newStudent).build();
     }
@@ -65,7 +63,7 @@ public class StudentRest {
     @PUT
     public Response updateStudent(Student student) {
         studentService.updateStudent(student);
-        return Response.ok().build();
+        return Response.ok(student).build();
     }
 
     @Path("all")
@@ -74,18 +72,5 @@ public class StudentRest {
         return studentService.getAllStudents();
     }
 
-    private String createMessage(Student student) {
-        StringBuilder message = new StringBuilder();
-        if(student.getFirstName() == null){
-            message.append("First name must be specified \n");
-        }
-        if(student.getLastname() == null){
-            message.append("Lastname must be specified \n");
-        }
-        if(student.getEmail() == null){
-            message.append("Email must be specified \n");
-        }
-        return message.toString();
-    }
 
 }
