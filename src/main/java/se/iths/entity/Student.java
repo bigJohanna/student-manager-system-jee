@@ -14,16 +14,26 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @NotNull(message = "First name must be specified")
+    @NotEmpty(message = "First name must be specified.")
+    @NotNull(message = "First name must be specified.")
     private String firstName;
 
-    @NotNull(message = "Lastname must be specified")
+    //@NotEmpty(message = "Lastname must be specified.")
+    //@NotNull(message = "Lastname must be specified.")
     private String lastname;
 
-    @NotNull(message = "Email must be specified")
+    //@NotEmpty(message = "Email must be specified.")
+    //@NotNull(message = "Email must be specified.")
     private String email;
 
     private String phoneNumber;
+
+    public Student(String firstName, String lastname, String email, String phoneNumber) {
+        this.firstName = firstName;
+        this.lastname = lastname;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+    }
 
     public Long getId() {
         return id;

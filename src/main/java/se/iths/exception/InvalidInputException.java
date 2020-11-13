@@ -1,7 +1,5 @@
 package se.iths.exception;
 
-import se.iths.entity.Student;
-
 import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
@@ -11,7 +9,8 @@ import javax.ws.rs.core.Response;
 public class InvalidInputException extends WebApplicationException {
 
     public InvalidInputException(String message){
-        super(Response.status(Response.Status.NOT_FOUND).entity(message).type(MediaType.TEXT_PLAIN).build());
+        super(Response.status(Response.Status.BAD_REQUEST).entity(message).type(MediaType.TEXT_PLAIN).build());
+        //super(message);
     }
 
     public InvalidInputException() {

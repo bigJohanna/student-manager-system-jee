@@ -24,20 +24,21 @@ public class StudentRest {
     @Inject
     StudentService studentService;
 
+    @Inject
+    InputValidator inputValidator;
+
     @Path("add")
     @POST
-    public Response addStudent(Student student) {
-        new InputValidator().validateStudentInput(student);
-        Student newStudent = studentService.createStudent(student);
-        return Response.ok(newStudent).build();
+    public Response addStudent(@Valid @RequestBody Student student) {
+            inputValidator.validateStudentInput(student);
+            Student newStudent = studentService.createStudent(student);
+            return Response.ok(newStudent).build();
     }
 
     @Path("{id}")
     @GET
     public Response getStudent(@PathParam("id") Long id) {
-        Student foundStudent = studentService.findStudentById(id);
-        if (foundStudent == null)
-            throw new NotFoundException(id);
+        Student foundStudent = findStudent(id);
         return Response.ok(foundStudent).build();
     }
 
@@ -51,17 +52,15 @@ public class StudentRest {
     @Produces(MediaType.TEXT_PLAIN)
     @DELETE
     public Response deleteStudentById(@PathParam("id") Long id) {
-        Student foundStudent = studentService.findStudentById(id);
-        if (foundStudent != null) {
+            findStudent(id);
             studentService.deleteStudent(id);
             return Response.ok().build();
-        }
-        throw new NotFoundException(id);
     }
 
     @Path("update")
     @PUT
     public Response updateStudent(Student student) {
+        findStudent(student.getId());
         studentService.updateStudent(student);
         return Response.ok(student).build();
     }
@@ -72,5 +71,11 @@ public class StudentRest {
         return studentService.getAllStudents();
     }
 
+    private Student findStudent(Long id){
+        Student foundStudent = studentService.findStudentById(id);
+        if (foundStudent == null)
+            throw new NotFoundException(id);
+        return foundStudent;
+    }
 
 }
