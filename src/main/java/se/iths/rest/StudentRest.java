@@ -9,7 +9,6 @@ import se.iths.validator.InputValidator;
 
 import javax.inject.Inject;
 import javax.validation.Valid;
-import javax.validation.Validation;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;

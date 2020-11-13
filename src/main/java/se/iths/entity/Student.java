@@ -28,6 +28,10 @@ public class Student {
 
     private String phoneNumber;
 
+    public Student(){
+
+    }
+
     public Student(String firstName, String lastname, String email, String phoneNumber) {
         this.firstName = firstName;
         this.lastname = lastname;
