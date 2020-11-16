@@ -28,7 +28,7 @@ public class StudentRest {
 
     @Path("add")
     @POST
-    public Response addStudent(@Valid @RequestBody Student student) {
+    public Response addStudent(Student student) {
             inputValidator.validateStudentInput(student);
             Student newStudent = studentService.createStudent(student);
             return Response.ok(newStudent).build();
