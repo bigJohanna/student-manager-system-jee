@@ -16,13 +16,13 @@ public class InputValidator {
     private String createMessage(Student student) {
         StringBuilder message = new StringBuilder();
         if(student.getFirstName() == null){
-            message.append("First name must be specified \n");
+            message.append("First name must be specified. \n");
         }
         if(student.getLastname() == null){
-            message.append("Lastname must be specified \n");
+            message.append("Lastname must be specified. \n");
         }
         if(student.getEmail() == null){
-            message.append("Email must be specified \n");
+            message.append("Email must be specified. \n");
         }
         return message.toString();
     }

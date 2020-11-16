@@ -10,7 +10,6 @@ public class InvalidInputException extends WebApplicationException {
 
     public InvalidInputException(String message){
         super(Response.status(Response.Status.BAD_REQUEST).entity(message).type(MediaType.TEXT_PLAIN).build());
-        //super(message);
     }
 
     public InvalidInputException() {

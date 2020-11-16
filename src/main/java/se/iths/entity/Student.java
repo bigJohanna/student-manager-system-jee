@@ -1,9 +1,6 @@
 package se.iths.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
@@ -14,18 +11,9 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @NotEmpty(message = "First name must be specified.")
-    @NotNull(message = "First name must be specified.")
     private String firstName;
-
-    //@NotEmpty(message = "Lastname must be specified.")
-    //@NotNull(message = "Lastname must be specified.")
     private String lastname;
-
-    //@NotEmpty(message = "Email must be specified.")
-    //@NotNull(message = "Email must be specified.")
     private String email;
-
     private String phoneNumber;
 
     public Student(){
@@ -55,6 +43,7 @@ public class Student {
         this.firstName = firstName;
     }
 
+    //@NotEmpty(message = "Lastname must be specified.")
     public String getLastname() {
         return lastname;
     }

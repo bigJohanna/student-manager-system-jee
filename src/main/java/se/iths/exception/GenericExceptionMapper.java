@@ -1,4 +1,4 @@
-package se.iths.rest;
+package se.iths.exception;
 
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -10,6 +10,6 @@ public class GenericExceptionMapper implements ExceptionMapper<Throwable> {
 
     @Override
     public Response toResponse(Throwable arg) {
-        return Response.status(Response.Status.BAD_REQUEST).entity("Aja baja").type(MediaType.TEXT_PLAIN).build();
+        return Response.status(Response.Status.BAD_REQUEST).entity("Something went wrong.. Please try again").type(MediaType.TEXT_PLAIN).build();
     }
 }
