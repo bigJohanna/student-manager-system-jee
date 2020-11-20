@@ -1,9 +1,8 @@
 package se.iths.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Teacher {
@@ -14,6 +13,11 @@ public class Teacher {
 
     private String name;
 
+    public Teacher(){}
+
+    public Teacher(String name){
+        this.name = name;
+    }
 
     public Long getId() {
         return id;

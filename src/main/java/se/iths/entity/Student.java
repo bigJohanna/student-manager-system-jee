@@ -1,11 +1,10 @@
 package se.iths.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Student {
@@ -18,6 +17,7 @@ public class Student {
     private String lastname;
     private String email;
     private String phoneNumber;
+
 
     public Student(){
 
@@ -58,6 +58,10 @@ public class Student {
         return email;
     }
 
+    public void setEmail() {
+        setEmail();
+    }
+
     public void setEmail(String email) {
         this.email = email;
     }
@@ -69,4 +73,5 @@ public class Student {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+
 }

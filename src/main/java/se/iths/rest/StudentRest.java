@@ -1,14 +1,11 @@
 package se.iths.rest;
 
-import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 import se.iths.entity.Student;
-import se.iths.exception.InvalidInputException;
 import se.iths.exception.NotFoundException;
 import se.iths.service.StudentService;
 import se.iths.validator.InputValidator;
 
 import javax.inject.Inject;
-import javax.validation.Valid;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;

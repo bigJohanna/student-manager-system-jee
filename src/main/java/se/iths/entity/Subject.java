@@ -1,9 +1,8 @@
 package se.iths.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Subject {
@@ -13,6 +12,14 @@ public class Subject {
     private Long id;
 
     private String name;
+
+    public Subject(){
+
+    }
+
+    public Subject(String name) {
+        this.name = name;
+    }
 
 
 
