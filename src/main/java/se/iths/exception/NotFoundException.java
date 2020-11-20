@@ -9,7 +9,7 @@ import javax.ws.rs.core.Response;
 public class NotFoundException extends WebApplicationException {
 
     public NotFoundException(Long id){
-        super(Response.status(Response.Status.NOT_FOUND).entity("Student with id: " + id + " not found.").type(MediaType.TEXT_PLAIN).build());
+        super(Response.status(Response.Status.NOT_FOUND).entity("Object with id '" + id + "' not found.").type(MediaType.TEXT_PLAIN).build());
     }
 
 }
