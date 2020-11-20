@@ -38,15 +38,13 @@ public class SampleDataGenerator {
         t1.addSubject(sub2);
         t2.addSubject(sub3);
 
-
-       // entityManager.persist(sub1);
-       // entityManager.persist(sub2);
-       // entityManager.persist(sub3);
-
-
-     //   stu1.addSubject(sub1);
-     //   stu1.addSubject(sub2);
-     //   stu1.addSubject(sub3);
+        sub1.addStudent(stu1);
+        sub1.addStudent(stu2);
+        sub1.addStudent(stu3);
+        sub2.addStudent(stu1);
+        sub2.addStudent(stu5);
+        sub2.addStudent(stu6);
+        sub3.addStudent(stu1);
 
         entityManager.persist(stu1);
         entityManager.persist(stu2);
