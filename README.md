@@ -1,7 +1,9 @@
 The project loads with sample data on startup.
 
-Labb1 on branch main.
+Labb1 on branch main. <br>
 Labb2 on branch main2.
+
+__MAIN:__
 
 GET:
 
