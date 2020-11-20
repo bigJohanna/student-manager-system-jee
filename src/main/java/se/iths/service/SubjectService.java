@@ -1,11 +1,13 @@
 package se.iths.service;
 
 
+import se.iths.entity.Student;
 import se.iths.entity.Subject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Set;
 
 @Transactional
 public class SubjectService {
@@ -38,4 +40,8 @@ public class SubjectService {
         entityManager.remove(deleteThis);
     }
 
+    public Set<Student> studentsBySubjectId(Long id) {
+        return entityManager.find(Subject.class, id).getStudents();
+
+    }
 }

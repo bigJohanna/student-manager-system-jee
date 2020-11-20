@@ -1,5 +1,6 @@
 package se.iths.rest;
 
+import se.iths.entity.Student;
 import se.iths.entity.Subject;
 import se.iths.exception.NotFoundException;
 import se.iths.service.SubjectService;
@@ -10,6 +11,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
+import java.util.Set;
 
 @Path("subject")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -67,6 +69,13 @@ public class SubjectRest {
         if (foundSubject == null)
             throw new NotFoundException(id);
         return foundSubject;
+    }
+
+    @Path("students/{subject-id}")
+    @GET
+    public Set<Student> getStudentsBySubjectId(@PathParam("subject-id") Long id){
+        findSubject(id);
+        return subjectService.studentsBySubjectId(id);
     }
 
 }
