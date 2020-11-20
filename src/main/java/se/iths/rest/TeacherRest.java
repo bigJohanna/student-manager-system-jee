@@ -60,7 +60,7 @@ public class TeacherRest {
 
     @Path("all")
     @GET
-    public List<Teacher> getAllItems() {
+    public List<Teacher> getAllTeachers() {
         return teacherService.getAllTeachers();
     }
 

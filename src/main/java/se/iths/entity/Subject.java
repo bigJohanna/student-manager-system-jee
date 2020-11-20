@@ -13,6 +13,9 @@ public class Subject {
 
     private String name;
 
+    @ManyToOne(fetch=FetchType.LAZY)
+    private Teacher teacher;
+
     public Subject(){
 
     }
@@ -37,5 +40,9 @@ public class Subject {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
     }
 }

@@ -34,11 +34,14 @@ public class SampleDataGenerator {
         Teacher t1 = new Teacher("Rose Mary");
         Teacher t2 = new Teacher("Anna Mae");
 
+        t1.addSubject(sub1);
+        t1.addSubject(sub2);
+        t2.addSubject(sub3);
 
-        entityManager.persist(sub1);
-        entityManager.persist(sub2);
-        entityManager.persist(sub3);
 
+       // entityManager.persist(sub1);
+       // entityManager.persist(sub2);
+       // entityManager.persist(sub3);
 
 
      //   stu1.addSubject(sub1);

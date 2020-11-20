@@ -1,5 +1,6 @@
 package se.iths.entity;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -12,6 +13,14 @@ public class Teacher {
     private Long id;
 
     private String name;
+
+    @OneToMany(mappedBy="teacher", cascade = CascadeType.PERSIST)
+    private Set<Subject> subjects = new HashSet<>();
+
+    public void addSubject(Subject subject){
+        subjects.add(subject);
+        subject.setTeacher(this);
+    }
 
     public Teacher(){}
 
@@ -33,5 +42,14 @@ public class Teacher {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @JsonbTransient
+    public Set<Subject> getSubjects() {
+        return subjects;
+    }
+
+    public void setSubjects(Set<Subject> subjects) {
+        this.subjects = subjects;
     }
 }
