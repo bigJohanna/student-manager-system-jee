@@ -12,6 +12,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
+import java.util.Set;
 
 @Path("teacher")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -69,6 +70,14 @@ public class TeacherRest {
         if (foundTeacher == null)
             throw new NotFoundException(id);
         return foundTeacher;
+    }
+
+    @Path("subjects/{teacherId}")
+    @GET
+    public Set<Subject> getSubjectsByeacherId(@PathParam("teacherId") Long id){
+
+        findTeacher(id);
+        return teacherService.getAllSubjects(id);
     }
 
 

@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Set;
 
 @Transactional
 public class TeacherService {
@@ -39,4 +40,7 @@ public class TeacherService {
         entityManager.remove(deleteThis);
     }
 
+    public Set<Subject> getAllSubjects(Long id) {
+        return entityManager.find(Teacher.class, id).getSubjects();
+    }
 }
