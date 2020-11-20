@@ -56,14 +56,11 @@ All teachers
 
 http://localhost:8080/student-manager/api/v1/subject/all <br>
 All subjects
-<br>
-<br>
-<br>
 
 http://localhost:8080/student-manager/api/v1/teacher/subjects/{teacher-id} <br>
 All subjects by teacher ID
 
->End points to be implemented:
+>End points to be implemented: <br>
 >http://localhost:8080/student-manager/api/v1/subject/students/{subject-id} <br>
 >All students by subject ID
 >
