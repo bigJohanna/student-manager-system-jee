@@ -1,5 +1,6 @@
 package se.iths.service;
 
+import se.iths.entity.Student;
 import se.iths.entity.Subject;
 import se.iths.entity.Teacher;
 
@@ -42,5 +43,14 @@ public class TeacherService {
 
     public Set<Subject> getAllSubjects(Long id) {
         return entityManager.find(Teacher.class, id).getSubjects();
+    }
+
+    public Set<Student> getStudentsByTeacherAndSubject(Long teacherId, Long subjectId) {
+        //hämta subject
+        Subject subject = (Subject) entityManager
+                .createQuery("SELECT DISTINCT s FROM Subject s INNER JOIN FETCH s.teacher t INNER JOIN FETCH s.students q WHERE t.id = :teacherId AND s.id = :subjectId")
+                .setParameter("teacherId", teacherId).setParameter("subjectId", subjectId).getSingleResult();
+        //hämta students from subject
+        return subject.getStudents();
     }
 }

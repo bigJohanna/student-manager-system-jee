@@ -80,5 +80,15 @@ public class TeacherRest {
         return teacherService.getAllSubjects(id);
     }
 
+    ///students/{teacher-id}/{subject-id} <br>
+    //All students by teacher ID and subject ID
 
+    @Path("students/{teacher-id}/{subject-id}")
+    @GET
+    public Set<Student> getStudentsByTeacherIdAndSubjectId(
+            @PathParam("teacher-id") Long teacherId,
+            @PathParam("subject-id") Long subjectId){
+        findTeacher(teacherId);
+        return teacherService.getStudentsByTeacherAndSubject(teacherId, subjectId);
+    }
 }
