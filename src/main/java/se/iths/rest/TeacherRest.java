@@ -71,16 +71,5 @@ public class TeacherRest {
         return foundTeacher;
     }
 
-    @Path("students/{id}")
-    @GET
-    public List<Subject> getAllStudents(@PathParam("id") Long id){
-       return teacherService.findStudentsByTeacherId(id);
-    }
-
-    @Path("subjects/{id}")
-    @GET
-    public List<Teacher> getAllSubjectsByTeacherId(@PathParam("id") Long id){
-        return teacherService.findSubjectsByTeacherId(id);
-    }
 
 }
