@@ -47,7 +47,7 @@ http://localhost:8080/student-manager/api/v1/student/1 <br>
 Delete student by ID 1
 
 
- __Main2__
+ __Main2__ <br>
 
 GET:
 
@@ -63,8 +63,5 @@ All subjects by teacher ID
 http://localhost:8080/student-manager/api/v1/subject/students/{subject-id} <br>
 All students by subject ID
 
->End points to be implemented: <br>
->
->http://localhost:8080/student-manager/api/v1/teacher/students/{teacher-id}/{subject-id} <br>
->All students by teacher ID and subject ID
->
+http://localhost:8080/student-manager/api/v1/teacher/students/{teacher-id}/{subject-id} <br>
+All students by teacher ID and subject ID
